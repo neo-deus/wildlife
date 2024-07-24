@@ -47,7 +47,7 @@ const MapComponent = ({ threats, animalHotspots }) => {
   }
 
   return (
-    <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '600px', width: '100%' }}>
+    <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '630px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

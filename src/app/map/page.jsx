@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 // import Layout from '../components/Layout'
 
-const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), { ssr: false });
+const MapComponent = dynamic(() => import('@/components/map/MapComponent'), { ssr: false });
 
 export default function MapPage() {
   // This data would typically come from your API
@@ -17,7 +17,7 @@ export default function MapPage() {
 
   return (
     <div>
-      <h1>Conservation Area Map</h1>
+      {/* <h1>Conservation Area Map</h1> */}
       <MapComponent threats={threats} animalHotspots={animalHotspots} />
     </div>
   )

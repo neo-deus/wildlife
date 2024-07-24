@@ -1,12 +1,12 @@
-"use client"
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const email = localStorage.getItem('email');
+    const email = localStorage.getItem("email");
     setIsLoggedIn(!!email);
   }, []);
 
@@ -25,17 +25,48 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-6">
             {isLoggedIn ? (
               <>
-                <Link href="/" className="text-white cursor-pointer">Dashboard</Link>
-                <Link href="/map" className="text-white cursor-pointer">Map View</Link>
-                <Link href="/alerts" className="text-white cursor-pointer">Alerts</Link>
-                <Link href="/sensors" className="text-white cursor-pointer">Sensors</Link>
-                <Link href="/audio" className="text-white cursor-pointer">Audio Classification</Link>
-                <Link href="/logout" className="text-white cursor-pointer">Logout</Link>
+                <Link href="/" className="text-white cursor-pointer">
+                  Dashboard
+                </Link>
+                <Link href="/map" className="text-white cursor-pointer">
+                  Map View
+                </Link>
+                <Link href="/alerts" className="text-white cursor-pointer">
+                  Alerts
+                </Link>
+                <Link href="/sensor" className="text-white cursor-pointer">
+                  Sensors
+                </Link>
+                <Link href="/audio" className="text-white cursor-pointer">
+                  Audio Classification
+                </Link>
+                <Link href="/logout" className="text-white cursor-pointer">
+                  Logout
+                </Link>
               </>
             ) : (
               <>
-              <Link href="/login" className="text-white cursor-pointer">Login</Link>
-              <Link href="/signup" className="text-white cursor-pointer">Signup</Link>
+                <Link href="/login" className="text-white cursor-pointer">
+                  Login
+                </Link>
+                <Link href="/signup" className="text-white cursor-pointer">
+                  Signup
+                </Link>
+                <Link href="/map" className="text-white cursor-pointer">
+                  Map View
+                </Link>
+                <Link href="/alerts" className="text-white cursor-pointer">
+                  Alerts
+                </Link>
+                <Link href="/sensor" className="text-white cursor-pointer">
+                  Sensors
+                </Link>
+                <Link href="/region" className="text-white cursor-pointer">
+                  Regions
+                </Link>
+                <Link href="/logout" className="text-white cursor-pointer">
+                  Logout
+                </Link>
               </>
             )}
           </div>
