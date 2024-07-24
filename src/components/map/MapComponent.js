@@ -1,8 +1,10 @@
 // components/MapComponent.js
 "use client"
+import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Icon } from 'leaflet'
+import L from 'leaflet';
 
 // You'll need to import your custom icon images
 import dangerIcon from '../../../public/danger-icon.png'
@@ -11,25 +13,41 @@ import elephantIcon from '../../../public/elephant-icon.png'
 
 const MapComponent = ({ threats, animalHotspots }) => {
   const mapCenter = [26.6445, 93.3525] // Set this to your park's center coordinates
-  const zoomLevel = 11 // Adjust based on the size of your park
+  const zoomLevel = 12 // Adjust based on the size of your park
+
+  useEffect(() => {
+    // This is to handle the default icon issue
+    delete L.Icon.Default.prototype._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: '/leaflet/marker-icon-2x.png',
+      iconUrl: '/leaflet/marker-icon.png',
+      shadowUrl: '/leaflet/marker-shadow.png',
+    });
+  }, []);
 
   const customIcons = {
-    danger: new Icon({
-      iconUrl: dangerIcon,
-      iconSize: [25, 25]
+    danger: new L.Icon({
+      iconUrl: '/danger-icon.png',
+      iconSize: [25, 25],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
     }),
-    tiger: new Icon({
-      iconUrl: tigerIcon,
-      iconSize: [25, 25]
+    tiger: new L.Icon({
+      iconUrl: '/tiger-icon.jpg',
+      iconSize: [25, 25],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
     }),
-    elephant: new Icon({
-      iconUrl: elephantIcon,
-      iconSize: [25, 25]
+    elephant: new L.Icon({
+      iconUrl: '/elephant-icon.png',
+      iconSize: [25, 25],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
     })
   }
 
   return (
-    <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '500px', width: '100%' }}>
+    <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '600px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

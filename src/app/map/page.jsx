@@ -1,22 +1,18 @@
-// pages/map.js
 "use client"
 import dynamic from 'next/dynamic'
-// import MapComponent from "@/components/MapComponent/MapComponent"
 // import Layout from '../components/Layout'
 
-// We use dynamic import for the MapComponent because Leaflet requires window object
-// const MapComponent = dynamic(() => import('../../components/MapComponent/MapComponent'), { ssr: false })
 const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), { ssr: false });
 
 export default function MapPage() {
   // This data would typically come from your API
   const threats = [
-    { position: [24.6445, 94.7525], type: 'Gunshot', time: '2024-07-23 14:30' }
+    { position: [26.6445, 93.5525], type: 'Gunshot', time: '2024-07-23 14:30' }
   ]
 
   const animalHotspots = [
     { position: [26.6445, 93.3525], animal: 'tiger', lastSeen: '2024-07-23 12:00' },
-    { position: [26.0445, 94.3525], animal: 'elephant', lastSeen: '2024-07-23 13:15' }
+    { position: [26.6845, 93.3525], animal: 'elephant', lastSeen: '2024-07-23 13:15' }
   ]
 
   return (
