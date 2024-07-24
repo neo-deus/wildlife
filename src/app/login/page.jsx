@@ -9,7 +9,7 @@ import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
 import Image from 'next/image';
 
-const Login = ({setShowSignupForm,setShowLoginForm}) => {
+const Login = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [showResetForm, setShowResetForm] = useState(false);
