@@ -53,7 +53,7 @@ const Signup = () => {
   });
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 " onClick={() => router.push("/")}>
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ">
       <Toaster />
       <div className="bg-white rounded-xl shadow-lg w-96 p-6">
         <h1 className="text-2xl font-bold mb-4 text-black">{loading ? "Processing" : "Sign Up"}</h1>
