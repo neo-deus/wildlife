@@ -39,7 +39,7 @@ const Login = () => {
   const login = async (values) => {
     try {
       setLoading(true);
-      const response = await axios.post("https://wildlife-monitoring-software.onrender.com/signin", values);
+      const response = await axios.post( `https://wildlife-monitoring-software.onrender.com/signin?email=${values.email}&password=${values.password}`);
       toast.success("Login successfully");
       if (typeof window !== 'undefined') {
         localStorage.setItem("email", values.email);
